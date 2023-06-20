@@ -12,10 +12,13 @@ import android.widget.TextView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.sql.Connection;
+
 public class MainActivity extends AppCompatActivity {
 
     Button scanner;
     TextView result;
+    Connection connection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +27,17 @@ public class MainActivity extends AppCompatActivity {
         scanner = findViewById(R.id.scanner);
         result = findViewById(R.id.result);
 
+
         scanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
-                intentIntegrator.setOrientationLocked(true);
-                intentIntegrator.setPrompt("Scan QR Code");
-                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
-                intentIntegrator.initiateScan();
+//                IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
+//                intentIntegrator.setOrientationLocked(true);
+//                intentIntegrator.setPrompt("Scan QR Code");
+//                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+//                intentIntegrator.initiateScan();
+                connection = DatabaseConnection.connection();
+                System.out.println(connection);
             }
         });
     }
