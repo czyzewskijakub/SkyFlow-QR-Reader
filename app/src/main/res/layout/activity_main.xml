@@ -10,14 +10,36 @@
         android:id="@+id/scanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
         android:text="Scan" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/scanner"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textAlignment="center"
         android:id="@+id/result"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scanner"
+        android:layout_marginTop="240dp"
+        android:textColor="#e31740"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        android:id="@+id/isValid"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#199e60"
+        android:textSize="40dp"
+        android:layout_marginTop="360dp"
+        android:text="CONFIRM"
+        android:id="@+id/confirmButton"
+        />
 
 </RelativeLayout>
