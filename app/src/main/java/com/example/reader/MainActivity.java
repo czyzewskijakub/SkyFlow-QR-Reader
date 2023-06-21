@@ -62,9 +62,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (intentResult != null) {
-            String contents = intentResult.getContents();
+           String contents = intentResult.getContents();
+            try {
+               contents = CryptoProvider.decode(CryptoProvider.readPrivateKey(),contents);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if (contents != null) {
-                result.setText(intentResult.getContents());
+                result.setText(contents);
                 String text = result.getText().toString();
                 String[] lines = text.split("\r?\n|\r");
                 String ticketId = lines[6];
